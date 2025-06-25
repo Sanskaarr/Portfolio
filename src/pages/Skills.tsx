@@ -11,13 +11,16 @@ const Skills = () => {
       { name: "Git", icon: "git", color: "#F05032" },
       { name: "SQL", icon: "database", color: "#336791" },
       { name: "Bootstrap", icon: "bootstrap", color: "#7952B3" },
-      { name: "Linux", icon: "linux", color: "#FCC624" }
+      { name: "Linux", icon: "linux", color: "#FCC624" },
+      { name: "Python", icon: "python", color: "#3776AB" },
+
     ],
     learning: [
       { name: "Node.js", icon: "nodejs", color: "#339933" },
       { name: "TypeScript", icon: "typescript", color: "#3178C6" },
       { name: "REST APIs", icon: "api", color: "#FF6B6B" },
       { name: "MongoDB", icon: "mongodb", color: "#47A248" }
+
     ]
   };
 
@@ -87,6 +90,21 @@ const Skills = () => {
       mongodb: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
           <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-3.032.284-6.017.51-9.027.417-.297 5.228-4.219 4.292-5.418z"/>
+        </svg>
+      ),
+        python: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+          <path d="M12 0c-1.104 0-2 .896-2 2v2H6c-1.104 0-2 .896-2 2v4h8v2H4c-1.104 0-2 .896-2 2v4c0 1.104.896 2 2 2h4v2c0 1.104.896 2 2 2h4c1.104 0 2-.896 2-2v-2h4c1.104 0 2-.896 2-2v-4h-8v-2h8V6c0-1.104-.896-2-2-2h-4V2c0-1.104-.896-2-2-2h-4z"/>
+        </svg>
+      ),
+      sql: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+          <path d="M2 4.5v15c0 1.3 4.5 2.5 10 2.5s10-1.2 10-2.5v-15C22 3.2 17.5 2 12 2S2 3.2 2 4.5zm18 0c0 .4-2.7 1.5-8 1.5S4 4.9 4 4.5 6.7 3 12 3s8 1.1 8 1.5zm0 3c0 .4-2.7 1.5-8 1.5S4 7.9 4 7.5V6c1.4 1 5.5 1.5 8 1.5s6.6-.5 8-1.5v1.5zm0 3c0 .4-2.7 1.5-8 1.5S4 10.9 4 10.5V9c1.4 1 5.5 1.5 8 1.5s6.6-.5 8-1.5v1.5zm0 3c0 .4-2.7 1.5-8 1.5s-8-1.1-8-1.5V12c1.4 1 5.5 1.5 8 1.5s6.6-.5 8-1.5v1.5z"/>
+        </svg>
+      ),
+        cybersecurity: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM12 21c-4.42-1.14-7-5.72-7-10V6.3l7-3.11 7 3.11V11c0 4.28-2.58 8.86-7 10z"/>
         </svg>
       )
     };
@@ -161,8 +179,11 @@ const Skills = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 px-4 sm:px-0">
               {/* Example certifications, replace with actual data */}
               {[
-                { name: "AWS Certified Developer", icon: "cloud", color: "#FF9900", org: "Amazon Web Services", date: "2023" },
-                { name: "Oracle Certified Java Programmer", icon: "java", color: "#007396", org: "Oracle", date: "2022" }
+                { name: "Python", icon: "python", color: "#3776AB", org: "HackerRank", date: "2023" },
+                { name: "SQL - Basic", icon: "database", color: "#336791", org: "HackerRank", date: "2022" },
+                { name: "SQL - Intermediate", icon: "database", color: "#336791", org: "HackerRank", date: "2024" },
+                { name: "Introduction to CyberSecurity", icon: "cybersecurity", color: "#FF6B6B", org: "Cisco Networking Academy", date: "2025" },
+
               ].map((cert, idx) => (
                 <div
                   key={cert.name}
