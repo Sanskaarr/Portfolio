@@ -103,6 +103,7 @@ const Home = () => {
                   <img 
                     src="/sanskar.png"
                     alt="Sanskar Jain"
+                    loading="lazy" 
                     className="w-full h-full object-cover"
                   />
                 </div>
