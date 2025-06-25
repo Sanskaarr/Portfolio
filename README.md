@@ -1,3 +1,33 @@
+# 💼 Sanskar Jain - Portfolio Website
+
+Welcome to my personal developer portfolio!  
+This site showcases my work in web development, IoT, and AI — featuring featured projects, skills, certifications, and more.
+
+🌐 **Live Demo**: [sanskar-jain.vercel.app](https://sanskar-jain.vercel.app)
+
+---
+
+## 🔧 Tech Stack
+
+- **React.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **Vite**
+- **React Router**
+- **Lucide Icons**
+- **Vercel** (for deployment)
+
+---
+
+## 🚀 Features
+
+- ⚡ Fully responsive and animated UI
+- 🎨 Themed backgrounds with radial gradients
+- 📂 Dynamic project listing with filtering
+- 🌍 Multilingual and AI-based chatbot project showcase
+- 📜 Downloadable resume + certifications
+- 🌐 Hosted on [Vercel](https://vercel.com)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -67,4 +97,3 @@ export default tseslint.config([
   },
 ])
 ```
-# Portfolio
