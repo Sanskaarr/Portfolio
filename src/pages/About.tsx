@@ -2,7 +2,7 @@ import { GraduationCap, Globe, Heart } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col  pt-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col pt-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto py-16 sm:py-20">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
@@ -14,8 +14,9 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Content */}
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left Column Content */}
           <div className="space-y-6 sm:space-y-8 animate-slide-in-left">
             <div className="space-y-6">
               <h2 className="text-2xl sm:text-3xl font-poppins font-bold text-white">
@@ -72,40 +73,22 @@ const About = () => {
                 </div>
               </div>
             </div>
-
-            {/* Interests Section */}
-            <div className="bg-portfolio-dark-gray/50 p-6 rounded-xl border border-portfolio-yellow/20 hover:border-portfolio-yellow/40 transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <Heart className="text-portfolio-yellow mr-3" size={24} />
-                <h3 className="text-lg sm:text-xl font-poppins font-semibold text-white">Interests & Passion</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  'Java Development', 'Data Structures & Algorithms', 'Spring Boot', 
-                  'IoT Solutions', 'Web Development', 'Machine Learning', 
-                  'Healthcare Technology', 'Open Source'
-                ].map((interest, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-gradient-to-r from-portfolio-teal/20 to-portfolio-coral/20 text-gray-300 rounded-full text-sm border border-portfolio-teal/30 hover:border-portfolio-teal/60 transition-all duration-300"
-                  >
-                    {interest}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Image/Visual */}
+          {/* Right Column Content (Image/Visual and Interests) */}
+          {/* This div now contains BOTH the Summary Box and the Interests Section */}
           <div className="animate-slide-in-right">
-            <div className="relative">
+            {/* Summary Box */}
+            {/* w-full added to relative div to ensure it takes full width for centering. */}
+            {/* mx-auto centers it when flex item width allows. */}
+            <div className="relative "> 
               <div className="absolute inset-0 bg-gradient-to-br from-portfolio-teal/20 to-portfolio-coral/20 rounded-2xl blur-xl"></div>
               <div className="relative bg-portfolio-dark-gray/30 p-6 sm:p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 relative">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-7 mt-5 relative">
                       <img
-                        src="public/Sanskar.png"
+                        src="/sanskar.png"
                         alt="Sanskar Jain"
                         className="w-full h-full rounded-full object-cover border-4 border-portfolio-teal/50"
                       />
@@ -135,8 +118,32 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+
+            {/* Interests Section - Now correctly placed BELOW the summary box with spacing */}
+            <div className="bg-portfolio-dark-gray/50 p-6 rounded-xl border border-portfolio-yellow/20 hover:border-portfolio-yellow/40 transition-all duration-300 mt-5"> {/* Added mt-6/lg:mt-8 and w-full max-w-md mx-auto */}
+              <div className="flex items-center mb-4">
+                <Heart className="text-portfolio-yellow mr-3" size={24} />
+                <h3 className="text-lg sm:text-xl font-poppins font-semibold text-white">Interests & Passion</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  'Java Development', 'Data Structures & Algorithms', 'Spring Boot', 
+                  'IoT Solutions', 'Web Development', 'Machine Learning', 
+                  'Healthcare Technology', 'Open Source'
+                ].map((interest, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-gradient-to-r from-portfolio-teal/20 to-portfolio-coral/20 text-gray-300 rounded-full text-sm border border-portfolio-teal/30 hover:border-portfolio-teal/60 transition-all duration-300"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+          </div> {/* End of Right Column Content */}
+            
+        </div> {/* End of Main Grid Layout */}
       </div>
     </div>
   );
