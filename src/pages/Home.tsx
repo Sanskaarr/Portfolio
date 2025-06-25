@@ -101,7 +101,7 @@ const Home = () => {
               <div className="relative">
                 <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-portfolio-teal">
                   <img 
-                    src="public/Sanskar.png"
+                    src="/sanskar.png"
                     alt="Sanskar Jain"
                     className="w-full h-full object-cover"
                   />
