@@ -1,0 +1,127 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 17 23 42;
+    --foreground: 248 250 252;
+
+    --card: 17 23 42;
+    --card-foreground: 248 250 252;
+
+    --popover: 17 23 42;
+    --popover-foreground: 248 250 252;
+
+    --primary: 42 157 143;
+    --primary-foreground: 248 250 252;
+
+    --secondary: 248 53 100;
+    --secondary-foreground: 248 250 252;
+
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+
+    --accent: 255 183 19;
+    --accent-foreground: 17 23 42;
+
+    --destructive: 248 53 100;
+    --destructive-foreground: 248 250 252;
+
+    --border: 30 41 59;
+    --input: 30 41 59;
+    --ring: 42 157 143;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-portfolio-dark text-foreground font-poppins;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid #2A9D8F;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.05em;
+    animation: 
+      typewriter 3s steps(30, end),
+      blink 1s infinite;
+  }
+
+  .floating-contact {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #2A9D8F, #F83564, #FFB713);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(42, 157, 143, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
