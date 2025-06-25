@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const FloatingContact = () => {
   return (
     <Link
-      to="/contact"
+      to="/Contact"
       className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-portfolio-coral hover:bg-portfolio-coral/90 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-40 group focus:outline-none focus:ring-2 focus:ring-portfolio-coral focus:ring-offset-2 focus:ring-offset-portfolio-dark"
       aria-label="Contact me"
     >

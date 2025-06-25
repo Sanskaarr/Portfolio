@@ -89,7 +89,7 @@ const Home = () => {
                 Download Resume
               </Button>
                    <Button variant="outline" 
-                    onClick={() => window.location.href = '/about'}
+                    onClick={() => window.location.href = '/About'}
                 className="w-full sm:w-auto border-2 border-portfolio-coral text-portfolio-coral bg-white hover:bg-portfolio-coral hover:text-white px-6 sm:px-8 py-3 text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 hover:scale-105">
                 Learn More
               </Button>
