@@ -128,7 +128,7 @@ const About = () => {
               <div className="flex flex-wrap gap-2">
                 {[
                   'Java Development', 'Data Structures & Algorithms', 'Spring Boot', 
-                  'IoT Solutions', 'Web Development', 'Machine Learning', 
+     'IoT Solutions', 'Web Development', 'Machine Learning', 
                   'Healthcare Technology', 'Open Source'
                 ].map((interest, index) => (
                   <span
