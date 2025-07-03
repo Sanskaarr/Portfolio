@@ -17,18 +17,16 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      // Insert message into database
+      const { error: dbError } = await supabase
         .from('messages')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message
-          }
-        ])
-        .select();
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        });
 
-      if (error) throw error;
+      if (dbError) throw dbError;
 
       toast({
         title: "Message sent successfully!",
@@ -38,6 +36,7 @@ const Contact = () => {
       // Reset form
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
+      console.error('Error sending message:', error);
       toast({
         title: "Error sending message",
         description: "Please try again or contact me directly via email.",
@@ -119,9 +118,11 @@ const Contact = () => {
                     <p className="font-semibold text-foreground">GitHub</p>
                     <a
                       href="https://github.com/Sanskaarr"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-navy hover:text-navy/80 transition-colors"
                     >
-                      github.com/sanskar-jain
+                      github.com/Sanskaarr
                     </a>
                   </div>
                 </div>

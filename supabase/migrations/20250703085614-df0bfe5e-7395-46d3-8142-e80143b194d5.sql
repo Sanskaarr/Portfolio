@@ -1,8 +1,8 @@
--- Create RLS policy to allow public inserts to messages table
-CREATE POLICY "Allow public inserts to messages" 
-ON public.messages 
-FOR INSERT 
-WITH CHECK (true);
+alter table public.messages enable row level security;
 
--- Ensure RLS is enabled on the messages table
-ALTER TABLE public.messages ENABLE ROW LEVEL SECURITY;
+create policy "Allow anyone to insert"
+on public.messages
+for insert
+with check (true);
+
+grant insert on public.messages to anon;
