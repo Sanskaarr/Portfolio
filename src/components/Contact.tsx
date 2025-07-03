@@ -25,7 +25,8 @@ const Contact = () => {
             email: formData.email,
             message: formData.message
           }
-        ]);
+        ])
+        .select();
 
       if (error) throw error;
 
