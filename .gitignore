@@ -1,1 +1,27 @@
 node_modules
+.env
+.vscode
+
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+.build/
+.cache/
+
+# System files
+.DS_Store
+.env
+.env.local
+.env.production
+.env.development
+
+# VS Code
+.vscode/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

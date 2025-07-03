@@ -17,15 +17,29 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Insert message into database
-      const { error: dbError } = await supabase
-        .from('messages')
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message
-        });
+      const [dbResult, emailResult] = await Promise.all([
+        supabase
+          .from('messages')
+          .insert({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }),
+        fetch('https://wplrzrguchdfubxkiozi.supabase.co/functions/v1/notify-new-message', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          })
+        })
+      ]);
 
+      const { error: dbError } = dbResult;
       if (dbError) throw dbError;
 
       toast({

@@ -82,7 +82,7 @@ const Hero = () => {
           <div className="relative">
             <div className="w-80 h-80 md:w-96 md:h-96 rounded-full border-4 border-primary/20 overflow-hidden bg-gradient-primary p-1">
              <img
-  src="/sanskar.png"
+  src="/sanskar.webp"
   alt="Sanskar Jain"
   className="w-full h-full object-cover rounded-full"
 />
