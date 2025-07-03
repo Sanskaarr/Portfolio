@@ -92,7 +92,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:block">
         <button 
           onClick={scrollToAbout} 
           className="text-primary hover:text-primary/80 transition-colors p-2 rounded-full hover:bg-primary/10"
