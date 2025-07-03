@@ -1,99 +1,73 @@
-# 💼 Sanskar Jain - Portfolio Website
+# Welcome to your Lovable project
 
-Welcome to my personal developer portfolio!  
-This site showcases my work in web development, IoT, and AI — featuring featured projects, skills, certifications, and more.
+## Project info
 
-🌐 **Live Demo**: [sanskar-jain.vercel.app](https://sanskar-jain.vercel.app)
+**URL**: https://lovable.dev/projects/d60b969a-229b-4ec6-9359-e5a656737a6e
 
----
+## How can I edit this code?
 
-## 🔧 Tech Stack
+There are several ways of editing your application.
 
-- **React.js**
-- **TypeScript**
-- **Tailwind CSS**
-- **Vite**
-- **React Router**
-- **Lucide Icons**
-- **Vercel** (for deployment)
+**Use Lovable**
 
----
+Simply visit the [Lovable Project](https://lovable.dev/projects/d60b969a-229b-4ec6-9359-e5a656737a6e) and start prompting.
 
-## 🚀 Features
+Changes made via Lovable will be committed automatically to this repo.
 
-- ⚡ Fully responsive and animated UI
-- 🎨 Themed backgrounds with radial gradients
-- 📂 Dynamic project listing with filtering
-- 🌍 Multilingual and AI-based chatbot project showcase
-- 📜 Downloadable resume + certifications
-- 🌐 Hosted on [Vercel](https://vercel.com)
+**Use your preferred IDE**
 
-# React + TypeScript + Vite
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Currently, two official plugins are available:
+Follow these steps:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-## Expanding the ESLint configuration
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Step 3: Install the necessary dependencies.
+npm i
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Edit a file directly in GitHub**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Use GitHub Codespaces**
 
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/d60b969a-229b-4ec6-9359-e5a656737a6e) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
