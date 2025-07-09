@@ -58,9 +58,9 @@ const Skills = () => {
           {/* Using Now */}
           <div className="scroll-reveal">
             <div className="mb-8">
-              <div className="inline-block border-2 border-foreground px-6 py-2 mb-6">
-                {/* <h3 className="text-xl font-bold text-foreground tracking-wider">SKILLS</h3> */}
-              </div>
+              {/* <div className="inline-block border-2 border-foreground px-6 py-2 mb-6">
+                <h3 className="text-xl font-bold text-foreground tracking-wider">SKILLS</h3>
+              </div> */}
               <h4 className="text-lg font-semibold text-foreground mb-6 tracking-wide">
                 USING NOW:
               </h4>
