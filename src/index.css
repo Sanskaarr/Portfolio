@@ -19,6 +19,7 @@
     /* Brand Colors */
     --primary: 151 45% 35%; /* Deep Green #2E8B57 */
     --primary-foreground: 0 0% 98%;
+    --primary-glow: 151 55% 45%; /* Lighter primary for glow effects */
     
     --coral: 10 85% 68%; /* Warm Coral #FF6F61 */
     --coral-foreground: 0 0% 98%;
@@ -164,6 +165,35 @@
 
   /* Contact Button */
   .contact-floating {
-    @apply fixed bottom-6 right-6 z-50 btn-primary rounded-full w-14 h-14 shadow-glow animate-bounce;
+    @apply fixed bottom-6 right-6 w-16 h-16 rounded-full flex items-center justify-center z-50 transition-all duration-500 ease-out;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--primary-glow) / 0.2);
+    color: hsl(var(--primary-foreground));
+    box-shadow: 
+      0 8px 32px hsl(var(--primary) / 0.3),
+      0 0 0 1px hsl(var(--primary-glow) / 0.1),
+      inset 0 1px 0 hsl(var(--primary-glow) / 0.2);
+  }
+
+  .contact-floating:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 
+      0 12px 40px hsl(var(--primary) / 0.4),
+      0 0 20px hsl(var(--primary-glow) / 0.6),
+      0 0 0 2px hsl(var(--primary-glow) / 0.3),
+      inset 0 1px 0 hsl(var(--primary-glow) / 0.3);
+    background: linear-gradient(135deg, hsl(var(--primary-glow)) 0%, hsl(var(--primary)) 100%);
+  }
+
+  .contact-floating:active {
+    transform: scale(1.05) translateY(-1px);
+    transition-duration: 150ms;
+  }
+
+  @media (max-width: 640px) {
+    .contact-floating {
+      @apply bottom-4 right-4 w-14 h-14;
+    }
   }
 }
