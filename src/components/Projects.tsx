@@ -34,8 +34,8 @@ const Projects = () => {
       detailedDescription: "Built an intelligent ticketing system supporting 8 languages with voice commands and integrated mapping for seamless user experience. Features real-time capacity monitoring and smart suggestions.",
       highlights: ["Voice Commands", "Multi-language Support", "Maps Integration", "Real-time Updates"],
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-      demoUrl: "#",
-      githubUrl: "#",
+      demoUrl: "https://comprehensive-chatbot.vercel.app",
+      githubUrl: "https://github.com/Sanskaarr/Comprehensive-Chatbot.git",
       gradient: "from-navy to-navy/80"
     }
   ];

@@ -1,24 +1,29 @@
 import { Code, Database, Palette, Globe, Wrench, Terminal } from 'lucide-react';
+import { BarChart3, Layers, LineChart } from "lucide-react";
 
 const Skills = () => {
   const usingNowSkills = [
-    { name: 'HTML5', icon: null, color: 'text-orange-500', customIcon: '🌐', bgColor: 'bg-orange-100' },
-    { name: 'CSS3', icon: null, color: 'text-blue-500', customIcon: '🎨', bgColor: 'bg-blue-100' },
-    { name: 'JAVASCRIPT', icon: null, color: 'text-yellow-500', customIcon: '⚡', bgColor: 'bg-yellow-100' },
     { name: 'JAVA', icon: null, color: 'text-red-600', customIcon: '☕', bgColor: 'bg-red-100' },
     { name: 'SPRING BOOT', icon: Wrench, color: 'text-green-600', bgColor: 'bg-green-100' },
-    { name: 'GIT', icon: Terminal, color: 'text-red-500', bgColor: 'bg-red-100' },
+    { name: 'JAVASCRIPT', icon: null, color: 'text-yellow-500', customIcon: '⚡', bgColor: 'bg-yellow-100' },
     { name: 'SQL', icon: Database, color: 'text-blue-600', bgColor: 'bg-blue-100' },
-    { name: 'BOOTSTRAP', icon: Palette, color: 'text-purple-600', bgColor: 'bg-purple-100' },
     { name: 'LINUX', icon: Terminal, color: 'text-gray-700', bgColor: 'bg-gray-100' },
+    { name: 'Power BI', icon: BarChart3, color: 'text-yellow-600', bgColor: 'bg-yellow-100' },
+    { name: 'GIT', icon: Terminal, color: 'text-red-500', bgColor: 'bg-red-100' },
     { name: 'PYTHON', icon: Code, color: 'text-yellow-600', bgColor: 'bg-yellow-100' },
+    { name: 'HTML5', icon: null, color: 'text-orange-500', customIcon: '🌐', bgColor: 'bg-orange-100' },
+    { name: 'CSS3', icon: null, color: 'text-blue-500', customIcon: '🎨', bgColor: 'bg-blue-100' },
+    { name: 'BOOTSTRAP', icon: Palette, color: 'text-purple-600', bgColor: 'bg-purple-100' },
   ];
 
   const learningSkills = [
-    { name: 'NODE.JS', icon: Wrench, color: 'text-green-600', bgColor: 'bg-green-100' },
-    { name: 'TYPESCRIPT', icon: Code, color: 'text-blue-600', bgColor: 'bg-blue-100' },
     { name: 'REST APIs', icon: Globe, color: 'text-purple-600', bgColor: 'bg-purple-100' },
     { name: 'MONGODB', icon: null, color: 'text-green-500', customIcon: '🍃', bgColor: 'bg-green-100' },
+    { name: 'TERADATA', icon: Layers, color: 'text-blue-600', bgColor: 'bg-blue-100' },
+    { name: 'MicroStrategy', icon: LineChart, color: 'text-indigo-600', bgColor: 'bg-indigo-100' },
+    { name: 'Power BI Report Builder', icon: BarChart3, color: 'text-yellow-600', bgColor: 'bg-yellow-100' },
+    { name: 'NODE.JS', icon: Wrench, color: 'text-green-600', bgColor: 'bg-green-100' },
+    { name: 'TYPESCRIPT', icon: Code, color: 'text-blue-600', bgColor: 'bg-blue-100' },
   ];
 
   const SkillCard = ({ skill, isLarge = true }: { skill: any, isLarge?: boolean }) => {
