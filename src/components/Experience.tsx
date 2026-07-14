@@ -1,161 +1,103 @@
-import { Calendar, Users, Award, Building } from 'lucide-react';
+import Reveal from "./Reveal";
 
-const Experience = () => {
-  const experiences = [
-    {
-      title: "Director of Multimedia",
-      organization: "Rotaract Club of Delhi Janak",
-      period: "July 2023 – June 2024",
-      type: "Leadership Role",
-      description: "Led multimedia production for events, campaigns, and digital branding. Managed design, video editing, and coordination with cross-functional teams to deliver consistent visual storytelling.",
-      achievements: [
-        "Designed visual content for 20+ community events and campaigns",
-        "Led multimedia team of 8+ members across various projects",
-        "Produced promotional videos that increased event attendance by 40%",
-        "Established brand guidelines and visual identity standards"
-      ],
-      color: "border-coral bg-coral/5",
-      icon: Award
-    },
-    {
-      title: "Treasurer",
-      organization: "Rotaract Club of Delhi Janak", 
-      period: "July 2024 – Oct 2024",
-      type: "Financial Management",
-      description: "Handled budgeting, financial planning, and expense tracking for organizational activities. Maintained transparency and accountability through regular reporting.",
-      achievements: [
-        "Managed organizational budget of ₹2,00,000+ across multiple projects",
-        "Implemented digital expense tracking system improving efficiency by 60%",
-        "Prepared monthly financial reports for board meetings",
-        "Reduced operational costs by 15% through strategic vendor negotiations"
-      ],
-      color: "border-navy bg-navy/5",
-      icon: Building
-    },
-    // {
-    //   title: "Volunteer",
-    //   organization: "Rotaract Club of Delhi Janak",
-    //   period: "July 2023 – Present",
-    //   type: "Community Service",
-    //   description: "Contributed to social initiatives, public service events, and collaborated with teams to execute impactful community projects.",
-    //   achievements: [
-    //     "Organized community outreach programs serving 500+ beneficiaries",
-    //     "Led fundraising campaigns raising ₹50,000+ for social causes",
-    //     "Coordinated with local NGOs for skill development workshops",
-    //     "Mentored youth in leadership and community engagement"
-    //   ],
-    //   color: "border-primary bg-primary/5",
-    //   icon: Users
-    // }
-  ];
+const ROLES = [
+  {
+    company: "Prekies Babycare",
+    role: "Website & Technical Head",
+    period: "Feb 2026 — Present",
+    description:
+      "Designed and built the company website from scratch — planning, UI/UX structure and deployment — with product showcasing, streamlined navigation and performance improvements.",
+  },
+  {
+    company: "Karwaanfilms.com",
+    role: "Project Lead",
+    period: "Jul 2023 — Jan 2024",
+    description:
+      "Led a team building a platform for human-centric documentaries, photos and film on Next.js and MongoDB. Owned end-to-end delivery, coordinating testing and validation for a scalable, high-performance launch.",
+  },
+];
 
+const EDUCATION = [
+  {
+    degree: "Master of Computer Applications",
+    school: "Amity University",
+    period: "2024 — 2026",
+  },
+  {
+    degree: "Bachelor of Computer Applications",
+    school: "Guru Gobind Singh Indraprastha University",
+    period: "Completed",
+  },
+];
+
+export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-4 bg-muted/30">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Volunteering
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Community engagement and leadership experiences that shaped my professional journey
-          </p>
+    <section id="experience" className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
+      <Reveal>
+        <div className="mb-4 flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <span className="h-px w-10 bg-[var(--color-accent)]" />
+          Experience
         </div>
+        <h2 className="max-w-lg text-balance font-display text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
+          Where I&apos;ve built things.
+        </h2>
+      </Reveal>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div 
-              key={index} 
-              className="scroll-reveal"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="card-elegant group hover:shadow-strong transition-all duration-500 hover:-translate-y-1">
-                <div className="flex items-start gap-6">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 rounded-full ${exp.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                    <exp.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1">
-                    {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Building className="w-4 h-4 text-coral" />
-                          <span className="text-coral font-semibold text-sm">{exp.organization}</span>
-                        </div>
-                        <h3 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                          {exp.title}
-                        </h3>
-                        <p className="text-primary font-medium text-sm mb-2">{exp.type}</p>
-                        <div className="flex items-center text-muted-foreground text-sm">
-                          <Calendar className="w-4 h-4 mr-2" />
-                          {exp.period}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {exp.description}
-                    </p>
-
-                    {/* Achievements Grid */}
-                    <div>
-                      <div className="flex items-center mb-4">
-                        <Award className="w-5 h-5 text-primary mr-2" />
-                        <span className="font-semibold text-foreground">Key Impact & Achievements</span>
-                      </div>
-                      <div className="grid md:grid-cols-2 gap-3">
-                        {exp.achievements.map((achievement, achIndex) => (
-                          <div key={achIndex} className="flex items-start group/item">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0 group-hover/item:scale-150 transition-transform"></div>
-                            <span className="text-muted-foreground text-sm leading-relaxed group-hover/item:text-foreground transition-colors">
-                              {achievement}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <div className="mt-10">
+        {ROLES.map((r, i) => (
+          <Reveal key={r.company} delay={i * 0.06}>
+            <div className="grid gap-2 border-t border-[var(--color-line)] py-8 md:grid-cols-[180px_1fr] md:gap-10">
+              <div className="flex items-start gap-3 font-mono text-xs uppercase tracking-widest text-[var(--color-ink-faint)] md:pt-1.5">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-[var(--color-accent)]" />
+                {r.period}
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Skills Developed */}
-        <div className="mt-16 scroll-reveal">
-          <div className="card-elegant bg-gradient-primary text-white text-center overflow-hidden relative">
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
-            <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-6">Skills Developed Through Community Engagement</h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  'Team Leadership', 
-                  'Project Management', 
-                  'Community Outreach', 
-                  'Event Coordination',
-                  'Public Speaking',
-                  'Fundraising',
-                  'Collaboration',
-                  'Social Impact'
-                ].map((skill, index) => (
-                  <span 
-                    key={index}
-                    className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium hover:bg-white/30 transition-all duration-300 hover:scale-105 cursor-default"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {skill}
+              <div>
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">
+                    {r.role}
+                  </h3>
+                  <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+                    {r.company}
                   </span>
-                ))}
+                </div>
+                <p className="mt-2 max-w-xl leading-relaxed text-[var(--color-ink-soft)]">
+                  {r.description}
+                </p>
               </div>
             </div>
-          </div>
+          </Reveal>
+        ))}
+        <div className="border-t border-[var(--color-line)]" />
+      </div>
+
+      <Reveal>
+        <div className="mt-16 mb-4 flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <span className="h-px w-10 bg-[var(--color-accent)]" />
+          Education
         </div>
+      </Reveal>
+
+      <div className="mt-8">
+        {EDUCATION.map((e, i) => (
+          <Reveal key={e.degree} delay={i * 0.06}>
+            <div className="grid gap-2 border-t border-[var(--color-line)] py-6 md:grid-cols-[180px_1fr] md:gap-10">
+              <div className="flex items-start gap-3 font-mono text-xs uppercase tracking-widest text-[var(--color-ink-faint)] md:pt-1">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-[var(--color-accent)]" />
+                {e.period}
+              </div>
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 className="font-display text-lg font-semibold text-[var(--color-ink)]">
+                  {e.degree}
+                </h3>
+                <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-ink-faint)]">
+                  {e.school}
+                </span>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+        <div className="border-t border-[var(--color-line)]" />
       </div>
     </section>
   );
-};
-
-export default Experience;
+}

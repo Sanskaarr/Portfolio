@@ -1,108 +1,111 @@
-import { useState, useEffect } from 'react';
-import { Download, ChevronDown } from 'lucide-react';
+"use client";
 
-const Hero = () => {
-  const [displayIndex, setDisplayIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [displayText, setDisplayText] = useState('');
+import { motion } from "framer-motion";
+import Terminal from "./Terminal";
 
-  const phrases = [
-    "Software Developer",
-    "Tech Enthusiast", 
-    "Problem Solver",
-    "Java Developer"
-  ];
-
-  useEffect(() => {
-    const currentPhrase = phrases[displayIndex];
-    
-    const timer = setTimeout(() => {
-      if (!isDeleting && charIndex < currentPhrase.length) {
-        setDisplayText("Hi, I'm Sanskar Jain – " + currentPhrase.slice(0, charIndex + 1));
-        setCharIndex(charIndex + 1);
-      } else if (isDeleting && charIndex > 0) {
-        setDisplayText("Hi, I'm Sanskar Jain – " + currentPhrase.slice(0, charIndex - 1));
-        setCharIndex(charIndex - 1);
-      } else if (!isDeleting && charIndex === currentPhrase.length) {
-        setTimeout(() => setIsDeleting(true), 1500);
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setDisplayIndex((prev) => (prev + 1) % phrases.length);
-      }
-    }, isDeleting ? 50 : 100);
-
-    return () => clearTimeout(timer);
-  }, [charIndex, displayIndex, isDeleting, phrases]);
-
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  return (
-    <section className="min-h-screen bg-gradient-hero flex flex-col items-center justify-center px-4 relative">
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center w-full">
-        {/* Text Content */}
-        <div className="text-center lg:text-left space-y-8 fade-in visible">
-          <div className="space-y-6">
-            <p className="text-primary text-lg md:text-xl font-medium">Hi, I'm</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
-              Sanskar Jain
-            </h1>
-            <div className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground min-h-[2em] flex items-center justify-center lg:justify-start">
-              <span>{displayText.replace("Hi, I'm Sanskar Jain – ", "")}</span>
-              <span className="animate-pulse text-primary ml-1">|</span>
-            </div>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Passionate about creating innovative solutions with Java, Spring Boot, and modern web technologies. Currently pursuing MCA and building impactful projects that make a difference.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a 
-              href="https://drive.google.com/file/d/1BOuSAUWKBCCczAOrFcNaJxAj44GyqYoc/view?usp=share_link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary group inline-flex items-center justify-center px-6 py-3 rounded-lg transition-all duration-300"
-            >
-              <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              Download Resume
-            </a>
-            <button 
-              onClick={scrollToAbout}
-              className="btn-outline inline-flex items-center justify-center px-6 py-3 rounded-lg transition-all duration-300"
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-
-        {/* Profile Image */}
-        <div className="flex justify-center fade-in visible">
-          <div className="relative">
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-full border-4 border-primary/20 overflow-hidden bg-gradient-primary p-1">
-             <img
-  src="/sanskar.webp"
-  alt="Sanskar Jain"
-  className="w-full h-full object-cover rounded-full"
-/>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:block">
-        <button 
-          onClick={scrollToAbout} 
-          className="text-primary hover:text-primary/80 transition-colors p-2 rounded-full hover:bg-primary/10"
-          aria-label="Scroll to next section"
-        >
-          <ChevronDown className="w-8 h-8" />
-        </button>
-      </div>
-    </section>
-  );
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
 };
 
-export default Hero;
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
+export default function Hero() {
+  return (
+    <section
+      id="top"
+      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-24"
+    >
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -bottom-16 left-1/2 hidden -translate-x-1/2 select-none font-display text-[26vw] font-[800] leading-none text-transparent md:block"
+        style={{ WebkitTextStroke: "1px var(--color-line)" }}
+      >
+        BUILD
+      </span>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-6 md:px-10 lg:grid-cols-[1.1fr_auto] lg:gap-20"
+      >
+        <div>
+          <motion.div
+            variants={item}
+            className="mb-8 flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-ink-faint)]"
+          >
+            <span className="h-px w-10 bg-[var(--color-ink-faint)]" />
+            Introduction
+          </motion.div>
+
+          <motion.h1
+            variants={item}
+            className="text-balance font-display text-5xl font-bold leading-[0.92] tracking-tight text-[var(--color-ink)] sm:text-6xl lg:text-7xl xl:text-8xl"
+          >
+            Software
+            <br />
+            built like it
+            <br />
+            <span className="text-[var(--color-accent)]">matters.</span>
+          </motion.h1>
+
+          <motion.p
+            variants={item}
+            className="mt-8 max-w-md text-balance text-lg leading-relaxed text-[var(--color-ink-soft)]"
+          >
+            I&apos;m Sanskar Jain — a software developer who ships full-stack
+            products end-to-end, from Spring Boot services to Next.js
+            frontends to IoT sensor pipelines.
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3"
+          >
+            <a
+              href="#work"
+              className="inline-flex items-center border border-[var(--color-ink)] bg-[var(--color-ink)] px-6 py-3 font-mono text-xs uppercase tracking-widest text-[var(--color-paper)] transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              See the work
+            </a>
+            <a
+              href="#contact"
+              className="-my-3 inline-block py-3 font-mono text-xs uppercase tracking-widest text-[var(--color-ink-soft)] underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)]"
+            >
+              Or send an email
+            </a>
+          </motion.div>
+        </div>
+
+        <motion.div
+          variants={item}
+          className="w-full max-w-sm lg:w-80 lg:justify-self-end xl:w-96"
+        >
+          <Terminal />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        variants={item}
+        initial="hidden"
+        animate="show"
+        className="absolute bottom-10 left-6 hidden items-center gap-3 md:left-10 md:flex"
+      >
+        <div className="h-14 w-px bg-[var(--color-line)]" />
+        <span className="vertical-rl font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink-faint)]">
+          Scroll
+        </span>
+      </motion.div>
+    </section>
+  );
+}

@@ -1,178 +1,137 @@
-import { ExternalLink, Github, Eye } from 'lucide-react';
+"use client";
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "Karwaanfilms.com",
-      role: "Project Lead",
-      tech: ["Next.js", "MongoDB", "Node.js", "Tailwind CSS", "Digital Ocean", "Vercel"],
-      description: "Scalable human-centric media platform built with modern web technologies. Led development, testing, and team coordination for a comprehensive content management system.",
-      detailedDescription: "A full-featured media platform designed to showcase and manage creative content. Implemented user authentication, content management, responsive design, and optimized performance.",
-      highlights: ["Team Leadership", "Full-Stack Development", "Performance Optimization", "Testing Strategy"],
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
-      demoUrl: "https://karwaanfilms.com/",
-      githubUrl: "https://github.com/Sanskaarr/karwaan-frontend.git",
-      gradient: "from-primary to-primary/80"
-    },
-    {
-      title: "Smart Health Monitoring Band (Under Development)",
-      role: "IoT Developer", 
-      tech: ["Arduino", "IoT Sensors", "Java", "Mobile App", "Cloud Analytics", "AI"],
-      description: "Cost-effective health monitoring solution built under ₹3000 using IoT sensors. Tracks vital signs including heart rate, temperature, and motion for healthcare accessibility.",
-      detailedDescription: "An innovative IoT solution addressing healthcare accessibility in India. Integrated multiple sensors with Arduino, developed mobile app interface, and created cloud-based data analytics.",
-      highlights: ["IoT Integration", "Cost Optimization", "Healthcare Focus", "Real-time Monitoring"],
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-      demoUrl: null,
-      githubUrl: null,
-      gradient: "from-coral to-coral/80"
-    },
-    {
-      title: "Multilingual Chatbot for Ticket Booking",
-      role: "Full-Stack Developer",
-      tech: ["Voice Recognition", "Maps API", "8 Languages", "Chatbot AI", "Mobile App"],
-      description: "Advanced voice-enabled chatbot supporting 8 languages with map-based suggestions. Features intelligent ticket booking with capacity alerts and multilingual support.",
-      detailedDescription: "Built an intelligent ticketing system supporting 8 languages with voice commands and integrated mapping for seamless user experience. Features real-time capacity monitoring and smart suggestions.",
-      highlights: ["Voice Commands", "Multi-language Support", "Maps Integration", "Real-time Updates"],
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-      demoUrl: "https://comprehensive-chatbot.vercel.app",
-      githubUrl: "https://github.com/Sanskaarr/Comprehensive-Chatbot.git",
-      gradient: "from-navy to-navy/80"
-    }
-  ];
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import Reveal from "./Reveal";
+import CaseStudyOverlay from "./CaseStudyOverlay";
+import { PROJECTS, type Project } from "@/data/projects";
+
+function ProjectRow({
+  project,
+  index,
+  onOpen,
+}: {
+  project: Project;
+  index: number;
+  onOpen: (project: Project) => void;
+}) {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: frameRef,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  // Screenshot drift stays inside the frame's padding so the full image
+  // is always visible — the oversized-field trick would clip its edges.
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-12px", "12px"]);
+  const reversed = index % 2 === 1;
 
   return (
-    <section id="projects" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Innovative solutions I've built to solve real-world problems
-          </p>
-        </div>
-
-        <div className="space-y-16">
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="scroll-reveal group"
-              style={{ animationDelay: `${index * 0.2}s` }}
+    <div
+      className={`grid items-center gap-10 border-t border-[var(--color-line)] py-12 first:border-t-0 md:grid-cols-2 md:gap-16 md:py-16 ${
+        reversed ? "md:[&>*:first-child]:order-2" : ""
+      }`}
+    >
+      <Reveal>
+        <motion.div
+          ref={frameRef}
+          initial={{ clipPath: "inset(0 100% 0 0)" }}
+          whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+          viewport={{ once: true, margin: "0px 0px 220px 0px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative aspect-[4/3] overflow-hidden"
+        >
+          {project.image ? (
+            <motion.div
+              style={{ y: reduceMotion ? 0 : imgY }}
+              className="absolute inset-0 overflow-hidden"
             >
-              <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                {/* Project Image */}
-                <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="relative overflow-hidden rounded-xl shadow-strong group-hover:shadow-glow transition-all duration-500">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-primary text-primary-foreground rounded-full text-sm font-medium">
-                        {project.role}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+              <Image
+                src={project.image}
+                alt={`${project.name} screenshot`}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-contain"
+              />
+            </motion.div>
+          ) : (
+            /* The field is taller than the frame and drifts inside it on
+               scroll, so the motion reads as depth behind a mask — moving
+               the whole card instead just wobbled it against the layout. */
+            <motion.div
+              style={{ y: reduceMotion ? 0 : y, background: project.tone }}
+              className="absolute inset-x-0 -inset-y-[8%] flex items-center justify-center"
+            >
+              <span className="font-display text-4xl font-[800] text-[var(--color-ink)]/20 md:text-5xl">
+                {project.name}
+              </span>
+            </motion.div>
+          )}
+          {/* Pinned to the frame — the fixed point that makes the drift
+              behind it legible. */}
+          <span className="absolute left-5 top-5 font-mono text-xs text-[var(--color-ink)]/40">
+            {project.number}
+          </span>
+        </motion.div>
+      </Reveal>
 
-                {/* Project Content */}
-                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <p className="text-foreground leading-relaxed">
-                      {project.detailedDescription}
-                    </p>
-                  </div>
-
-                  {/* Technologies Used */}
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-3">Technologies Used:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, techIndex) => (
-                        <span 
-                          key={techIndex}
-                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Key Highlights */}
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-3">Key Highlights:</h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {project.highlights.map((highlight, highlightIndex) => (
-                        <div key={highlightIndex} className="flex items-center text-sm">
-                          <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                          <span className="text-foreground">{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-4 pt-4">
-                    {project.demoUrl && (
-                      <a 
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary group-hover:scale-105 transition-transform"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Project
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a 
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-outline group-hover:scale-105 transition-transform"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Source Code
-                      </a>
-                    )}
-                    {project.title === "Smart Health Monitoring Band (Under Development)" && (
-                      <button 
-                        className="btn-outline group-hover:scale-105 transition-transform cursor-not-allowed"
-                        disabled
-                      >
-                        🔧 Under Development
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16 scroll-reveal">
-          <div className="bg-gradient-primary text-white p-8 rounded-2xl">
-            <h3 className="text-2xl font-bold mb-4">Want to see more?</h3>
-            <p className="text-white/90 mb-6 max-w-md mx-auto">
-              Check out my GitHub for more projects and contributions to open source
-            </p>
-            <button className="btn-outline bg-white/10 border-white text-white hover:bg-white hover:text-primary">
-              <Github className="w-5 h-5 mr-2" />
-              View GitHub Profile
-            </button>
+      <Reveal delay={0.1}>
+        <div>
+          <div className="mb-4 flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-ink-faint)]">
+            {project.number}
+            <span className="h-px flex-1 bg-[var(--color-line)]" />
+            {project.year}
           </div>
+          <h3 className="font-display text-4xl font-semibold tracking-tight text-[var(--color-ink)] md:text-5xl">
+            {project.name}
+          </h3>
+          <p className="mt-5 max-w-md leading-relaxed text-[var(--color-ink-soft)]">
+            {project.description}
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest text-[var(--color-ink-faint)]">
+            {project.tags.map((t, i) => (
+              <span key={t} className="flex items-center gap-4">
+                {i > 0 && <span className="text-[var(--color-line)]">/</span>}
+                {t}
+              </span>
+            ))}
+          </div>
+          <button
+            onClick={() => onOpen(project)}
+            className="mt-4 inline-block cursor-pointer py-3 font-mono text-xs uppercase tracking-widest text-[var(--color-ink)] underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)]"
+          >
+            View case study →
+          </button>
         </div>
+      </Reveal>
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [active, setActive] = useState<Project | null>(null);
+
+  return (
+    <section id="work" className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
+      <Reveal>
+        <div className="mb-4 flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <span className="h-px w-10 bg-[var(--color-accent)]" />
+          Selected Work
+        </div>
+        <h2 className="max-w-xl text-balance font-display text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
+          Things I&apos;ve designed, built and shipped.
+        </h2>
+      </Reveal>
+
+      <div className="mt-10">
+        {PROJECTS.map((p, i) => (
+          <ProjectRow key={p.name} project={p} index={i} onOpen={setActive} />
+        ))}
       </div>
+
+      <CaseStudyOverlay project={active} onClose={() => setActive(null)} />
     </section>
   );
-};
-
-export default Projects;
+}

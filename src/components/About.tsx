@@ -1,110 +1,58 @@
-import { GraduationCap, MapPin, Globe, Code } from 'lucide-react';
+import Reveal from "./Reveal";
 
-const About = () => {
+const FOCUS = [
+  ["Backend", "Java, Spring Boot, REST APIs, microservices"],
+  ["Frontend", "Next.js, React, responsive interfaces"],
+  ["Data & AI", "Power BI, AI/ML basics, data visualization"],
+  ["IoT", "Sensor pipelines, Python, low-cost prototyping"],
+];
+
+export default function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            About Me
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A passionate software developer with a strong foundation in computer science and a drive for innovation
-          </p>
-        </div>
+    <section
+      id="about"
+      className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24"
+    >
+      <div className="grid gap-14 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
+        <Reveal>
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            About
+          </span>
+        </Reveal>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Education & Background */}
-          <div className="space-y-8 scroll-reveal">
-            <div className="card-elegant">
-              <div className="flex items-center mb-4">
-                <GraduationCap className="w-6 h-6 text-primary mr-3" />
-                <h3 className="text-xl font-semibold">Education</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="border-l-4 border-primary pl-4">
-                  <h4 className="font-semibold text-foreground">MCA - Master of Computer Applications</h4>
-                  <p className="text-muted-foreground">Amity University • 2024–2026</p>
-                </div>
-                <div className="border-l-4 border-coral pl-4">
-                  <h4 className="font-semibold text-foreground">BCA - Bachelor of Computer Applications</h4>
-                  <p className="text-muted-foreground">GGSIPU • Completed</p>
-                </div>
-              </div>
-            </div>
+        <div className="space-y-8">
+          <Reveal>
+            <p className="text-balance font-display text-3xl font-medium leading-tight text-[var(--color-ink)] md:text-4xl">
+              I ship full-stack products end-to-end — from architecture to
+              deployment — and care about every step in between.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="max-w-xl leading-relaxed text-[var(--color-ink-soft)]">
+              MCA graduate from Amity University with hands-on experience
+              owning backend services in Java and Spring Boot, building
+              responsive frontends with Next.js, and wrangling IoT sensor
+              pipelines in Python. I&apos;ve led two real-world client
+              projects and built a health wearable prototype for under ₹3K.
+            </p>
+          </Reveal>
 
-            <div className="card-elegant">
-              <div className="flex items-center mb-4">
-                <Globe className="w-6 h-6 text-coral mr-3" />
-                <h3 className="text-xl font-semibold">Languages</h3>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                  🇬🇧 English (Fluent)
-                </span>
-                <span className="px-3 py-1 bg-coral/10 text-coral rounded-full text-sm font-medium">
-                  🇮🇳 Hindi (Fluent)
-                </span>
-                <span className="px-3 py-1 bg-navy/10 text-navy rounded-full text-sm font-medium">
-                  🇩🇪 German (Basic)
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Interests & Focus */}
-          <div className="space-y-8 scroll-reveal">
-            <div className="card-elegant">
-              <div className="flex items-center mb-4">
-                <Code className="w-6 h-6 text-navy mr-3" />
-                <h3 className="text-xl font-semibold">Technical Interests</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
-                    <span className="text-sm font-medium">Java Development</span>
+          <Reveal delay={0.14}>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-[var(--color-line)] pt-8 sm:grid-cols-4">
+              {FOCUS.map(([title, desc]) => (
+                <div key={title}>
+                  <div className="font-display text-base font-semibold text-[var(--color-ink)]">
+                    {title}
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-coral rounded-full mr-2"></div>
-                    <span className="text-sm font-medium">Data Structures & Algorithms</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-navy rounded-full mr-2"></div>
-                    <span className="text-sm font-medium">Spring Boot</span>
+                  <div className="mt-1.5 text-xs leading-relaxed text-[var(--color-ink-faint)]">
+                    {desc}
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
-                    <span className="text-sm font-medium">IoT Solutions</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-coral rounded-full mr-2"></div>
-                    <span className="text-sm font-medium">Web Development</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-navy rounded-full mr-2"></div>
-                    <span className="text-sm font-medium">Full-Stack Development</span>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-
-            <div className="card-elegant bg-gradient-primary text-white">
-              <h3 className="text-xl font-semibold mb-4">What Drives Me</h3>
-              <p className="text-white/90 leading-relaxed">
-                I'm passionate about building innovative solutions that make a real impact. 
-                From developing cost-effective IoT health monitoring systems to creating 
-                multilingual applications, I believe technology should be accessible and 
-                meaningful for everyone.
-              </p>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}
