@@ -63,9 +63,9 @@ export default function Hero() {
             variants={item}
             className="mt-8 max-w-md text-balance text-lg leading-relaxed text-[var(--color-ink-soft)]"
           >
-            I&apos;m Sanskar Jain — a software developer who ships full-stack
-            products end-to-end, from Spring Boot services to Next.js
-            frontends to IoT sensor pipelines.
+            I&apos;m Sanskar Jain — an AI-powered full-stack developer who
+            ships production systems fast, from Spring Boot &amp; Node backend
+            services to Next.js frontends and IoT pipelines.
           </motion.p>
 
           <motion.div

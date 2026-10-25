@@ -10,15 +10,15 @@ type Command = { prompt: string; output: string[] };
 const COMMANDS: Command[] = [
   {
     prompt: "whoami",
-    output: ["sanskar — software developer"],
+    output: ["sanskar — full-stack dev"],
   },
   {
     prompt: "cat status.txt",
-    output: ["open to new opportunities", "replies within a day"],
+    output: ["shipping production systems", "open to roles & projects"],
   },
   {
     prompt: "cat stack.txt",
-    output: ["java / spring boot / next.js", "python / sql / iot"],
+    output: ["next.js / spring boot / node", "supabase / llm apis / iot"],
   },
   {
     prompt: "open contact",

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Sanskar Jain — Software Developer";
+export const alt = "Sanskar Jain — AI-Powered Full-Stack Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,8 +24,8 @@ export default async function Image() {
 
   const headline = "Sanskar Jain";
   const tagline = "Builds software.";
-  const label = "SOFTWARE DEVELOPER";
-  const footerLeft = "Java / Spring Boot / Next.js / IoT";
+  const label = "AI-POWERED FULL-STACK DEVELOPER";
+  const footerLeft = "Next.js / Java / Supabase / IoT";
   const footerRight = "sanskar-jain.vercel.app";
 
   const [display, mono] = await Promise.all([

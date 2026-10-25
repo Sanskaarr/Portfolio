@@ -3,17 +3,24 @@ import Reveal from "./Reveal";
 const ROLES = [
   {
     company: "Prekies Babycare",
-    role: "Website & Technical Head",
+    role: "Website Lead & Software Developer",
     period: "Feb 2026 — Present",
     description:
-      "Designed and built the company website from scratch — planning, UI/UX structure and deployment — with product showcasing, streamlined navigation and performance improvements.",
+      "Architected and built the brand's in-house WMS and PO platform on Supabase — featuring sellable vs. quarantine stock tracking, PO reservations, scan-based dispatch, B2C returns, multi-invoice B2B GRN reconciliation, and Shipmozo CSV logistics mapping across a 3-database architecture — while directing the e-commerce website and technical infrastructure.",
+  },
+  {
+    company: "Littlefeetngo.com",
+    role: "Website Developer",
+    period: "NGO Project",
+    description:
+      "Designed and built littlefeetngo.com for an NGO teaching children ages 3–10, from information architecture to deployment, featuring curriculum storytelling and automated donation receipts.",
   },
   {
     company: "Karwaanfilms.com",
     role: "Project Lead",
     period: "Jul 2023 — Jan 2024",
     description:
-      "Led a team building a platform for human-centric documentaries, photos and film on Next.js and MongoDB. Owned end-to-end delivery, coordinating testing and validation for a scalable, high-performance launch.",
+      "Led a talented team to develop karwaanfilms.com, a platform curating human-centric documentaries, photos, and videos using Next.js (Frontend) and MongoDB (Backend). Coordinated testing and validation, ensuring compliance with industry standards. Owned end-to-end delivery — architecture, testing/validation, and deployment — for a scalable, high-performance platform.",
   },
 ];
 

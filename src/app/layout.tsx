@@ -24,9 +24,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const SITE_URL = "https://sanskar-jain.vercel.app";
-const TITLE = "Sanskar Jain — Software Developer";
+const TITLE = "Sanskar Jain — AI-Powered Full-Stack Developer";
 const DESCRIPTION =
-  "Software developer shipping full-stack products end-to-end — Java/Spring Boot backends, Next.js frontends and IoT prototypes. MCA, Amity University.";
+  "AI-Powered Full-Stack Developer shipping production systems fast using AI-assisted workflows — Next.js, Supabase, Java/Spring Boot, Node, LLM APIs, and IoT wearables. MCA, Amity University.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

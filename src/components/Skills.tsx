@@ -7,15 +7,25 @@ const GROUPS = [
   },
   {
     title: "Backend",
-    items: ["Spring Boot", "REST APIs", "Microservices", "MongoDB"],
+    items: [
+      "Spring Boot",
+      "REST APIs",
+      "Microservices",
+      "MongoDB",
+      "Supabase/PostgreSQL",
+    ],
   },
   {
     title: "Frontend",
-    items: ["Next.js", "React", "HTML/CSS", "Shopify"],
+    items: ["Next.js", "React", "HTML/CSS", "Shopify", "GSAP"],
   },
   {
-    title: "Data & AI",
-    items: ["Power BI", "AI/ML basics", "Data Visualization"],
+    title: "AI Tooling",
+    items: [
+      "AI-assisted development workflows",
+      "LLM API integration",
+      "Prompt-driven feature design",
+    ],
   },
   {
     title: "Tools",

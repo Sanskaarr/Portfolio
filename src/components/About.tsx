@@ -1,10 +1,10 @@
 import Reveal from "./Reveal";
 
 const FOCUS = [
-  ["Backend", "Java, Spring Boot, REST APIs, microservices"],
-  ["Frontend", "Next.js, React, responsive interfaces"],
-  ["Data & AI", "Power BI, AI/ML basics, data visualization"],
-  ["IoT", "Sensor pipelines, Python, low-cost prototyping"],
+  ["Backend", "Java, Spring Boot, Node, REST APIs, Microservices"],
+  ["Frontend", "Next.js, React, Supabase, Shopify, GSAP"],
+  ["AI Tooling", "AI dev workflows, LLM API integration, prompt design"],
+  ["Systems & IoT", "PostgreSQL, offline sync, sensor pipelines"],
 ];
 
 export default function About() {
@@ -23,17 +23,18 @@ export default function About() {
         <div className="space-y-8">
           <Reveal>
             <p className="text-balance font-display text-3xl font-medium leading-tight text-[var(--color-ink)] md:text-4xl">
-              I ship full-stack products end-to-end — from architecture to
-              deployment — and care about every step in between.
+              I ship production systems fast using AI-assisted workflows —
+              owning every architectural decision and every line of code.
             </p>
           </Reveal>
           <Reveal delay={0.08}>
             <p className="max-w-xl leading-relaxed text-[var(--color-ink-soft)]">
-              MCA graduate from Amity University with hands-on experience
-              owning backend services in Java and Spring Boot, building
-              responsive frontends with Next.js, and wrangling IoT sensor
-              pipelines in Python. I&apos;ve led two real-world client
-              projects and built a health wearable prototype for under ₹3K.
+              MCA graduate from Amity University comfortable across backend
+              services (Java/Spring Boot, Node), modern frontends (Next.js/React),
+              and offline-first data sync. I&apos;ve led real-world client
+              projects, architected a production-grade POS and warehouse
+              management system, built an NGO platform for early education, and
+              shipped a sub-₹3K IoT health wearable.
             </p>
           </Reveal>
 

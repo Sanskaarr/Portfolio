@@ -62,6 +62,12 @@ export default function Contact() {
             >
               LinkedIn
             </a>
+            <a
+              href="tel:+917231878863"
+              className="-my-3 inline-block py-3 font-mono text-xs uppercase tracking-widest text-[var(--color-ink-soft)] underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)]"
+            >
+              +91 72318 78863
+            </a>
           </div>
 
         </Reveal>
